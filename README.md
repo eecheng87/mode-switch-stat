@@ -1,5 +1,5 @@
 # msTimer
-msTimer is a infrastructure to measure the cost of mode switch (transition). In here, one mode switch trip contains user mode to kernel mode and kernel to user.
+To mitigate meltdown and spectre vulnerability, the mode switch cost was increased. msTimer is a easy infrastructure to measure the cost of mode switch. In here, one mode switch trip contains user mode to kernel mode and kernel to user.
 
 ## How to build & testing
 In current status, code only available for x86_64 and also need package: numpy
