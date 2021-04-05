@@ -2,13 +2,15 @@
 msTimer is a infrastructure to measure the cost of mode switch (transition). In here, one mode switch trip contains user mode to kernel mode and kernel to user.
 
 ## How to build & testing
-build project:
+In current status, code only available for x86_64 and also need package: numpy
+
+Build project:
 ```
 $ git clone https://github.com/eecheng87/msTimer.git
 $ cd msTimer
 $ sudo make
 ```
-testing:
+Testing:
 ```
 $ sudo make testing
 ```
