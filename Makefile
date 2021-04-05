@@ -14,12 +14,16 @@ systab.h:
 app:
 	gcc app.c -o app
 
-ins:
-	sudo insmod $(MODULE_NAME).ko
-rm:
-	sudo rmmod $(MODULE_NAME)
+testing:
+	@sudo insmod $(MODULE_NAME).ko
+	@rm -f tmp.out
+	@python3 exe.py > tmp.out
+	@python3 analy.py
+	@sudo rmmod $(MODULE_NAME)
+	@rm -f tmp.out
 
 .PHONY: app clean
 clean:
 	make -C /lib/modules/`uname -r`/build M=$(PWD) clean
 	rm systab.h
+	rm app
