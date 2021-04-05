@@ -1,9 +1,17 @@
 import numpy
 import os
-out = os.popen('lscpu').read()
+outcpy = out = os.popen('lscpu').read()
 idx = out.find('Model name:')
-out = " ".join(out[idx:].split('\n')[0].split()[2:])
+if idx > 0:
+    out = " ".join(out[idx:].split('\n')[0].split()[2:])
+beg = outcpy.find('Vulnerability Meltdown:')
+end = outcpy.find('Vulnerability Spec store bypass:')
+
+if beg > 0 and end > 0:
+    outcpy = " ".join(outcpy[beg:end].split('\n')[0].split()[2:])
+
 print('\nModel name: %s' % (out))
+print('Vulnerability Meltdown: %s\n' % (outcpy))
 
 elements = numpy.loadtxt('tmp.out')
 arr = elements.tolist()

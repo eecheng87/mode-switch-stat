@@ -16,8 +16,10 @@ $ sudo make testing
 ```
 sample output:
 ```
-Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
-Avg of mode switch takes 1608.11 cycles and standard deviation is 145.51
+Model name: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+Vulnerability Meltdown: Mitigation; PTI
+
+Avg of mode switch takes 1921.45 cycles and standard deviation is 106.92
 ```
 
 ## How to contribute
