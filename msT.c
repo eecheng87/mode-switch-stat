@@ -1,7 +1,11 @@
 #include <linux/init.h>
 #include <linux/kernel.h>
 #include <linux/module.h>
+#include <linux/version.h>
+
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,7,0)
 #include "systab.h"
+#endif
 
 #define __NR_emp 401
 
@@ -33,9 +37,15 @@ static void disallow_writes(void) {
 }
 
 static int __init msT_init(void) {
-
-    /* avoid effect of KALSR, get address of syscall table by adding offset */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5,7,0)
+	if (!(syscall_table = (void **)kallsyms_lookup_name("sys_call_table"))) {
+		printk(KERN_ERR "Cannot find sys_call_table\nNeed CONFIG_KALLSYMS & CONFIG_KALLSYMS_ALL\n");
+		return -ENOSYS;
+	}
+#else
+	/* avoid effect of KALSR, get address of syscall table by adding offset */
     syscall_table = (void **)(scTab + ((char *)&system_wq - sysWQ));
+#endif
 
     /* allow write */
     allow_writes();
