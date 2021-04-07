@@ -1,6 +1,6 @@
 import numpy
 import os
-outcpy = out = os.popen('lscpu').read()
+outcpy = out = os.popen('LC_ALL=C lscpu').read()
 idx = out.find('Model name:')
 if idx > 0:
     out = " ".join(out[idx:].split('\n')[0].split()[2:])
