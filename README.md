@@ -1,13 +1,13 @@
-# msTimer
-To mitigate meltdown and spectre vulnerability, the mode switch cost was increased. msTimer is a easy infrastructure to measure the cost of mode switch. In here, one mode switch trip contains user mode to kernel mode and kernel to user.
+# mode switch statistics
+To mitigate meltdown and spectre vulnerability, the mode switch cost was increased. mode-switch-stat is a easy infrastructure to measure the cost of mode switch. In here, one mode switch trip contains user mode to kernel mode and kernel to user.
 
 ## How to build & testing
 In current status, code only available for x86_64 and also need package: numpy
 
 Build project:
 ```
-$ git clone https://github.com/eecheng87/msTimer.git
-$ cd msTimer
+$ git clone https://github.com/eecheng87/mode-switch-stat.git
+$ cd mode-switch-stat
 $ make
 ```
 Testing:
