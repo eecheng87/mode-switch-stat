@@ -8,11 +8,11 @@ Build project:
 ```
 $ git clone https://github.com/eecheng87/msTimer.git
 $ cd msTimer
-$ sudo make
+$ make
 ```
 Testing:
 ```
-$ sudo make testing
+$ make testing
 ```
 sample output:
 ```
