@@ -9,6 +9,8 @@ end = outcpy.find('Vulnerability Spec store bypass:')
 
 if beg > 0 and end > 0:
     outcpy = " ".join(outcpy[beg:end].split('\n')[0].split()[2:])
+else:
+    outcpy = "Unknown"
 
 print('\nModel name: %s' % (out))
 print('Vulnerability Meltdown: %s\n' % (outcpy))
