@@ -2,9 +2,11 @@
 #include <sys/syscall.h>
 #include <time.h>
 #include <unistd.h>
-#include <x86intrin.h>
 #include <unistd.h>
 #include <sys/types.h>
+#if defined(__x86_64__)
+#include <x86intrin.h>
+#endif
 
 int main() {
     int i;
