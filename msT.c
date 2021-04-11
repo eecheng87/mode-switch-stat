@@ -3,6 +3,7 @@
 #include <linux/module.h>
 #include <linux/version.h>
 #include <linux/kallsyms.h>
+#include <linux/vmalloc.h>
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(5,7,0)
 #include "systab.h"
