@@ -71,6 +71,7 @@ $ make testing
 
 Reference output
 ```
+Architecture: x86_64
 Model name: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
 Vulnerability Meltdown: Mitigation; PTI
 
