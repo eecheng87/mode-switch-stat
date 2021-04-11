@@ -133,6 +133,6 @@ int main() {
     syscall(401);
     syscall(401);
     b = __rdtsc();
-    printf("%lld \n", (b - a)/100);
+    printf("%lld \n", (b - a) / 120);
     return 0;
 }
