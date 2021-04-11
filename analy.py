@@ -1,6 +1,9 @@
 import numpy
 import os
-outcpy = out = os.popen('LC_ALL=C lscpu').read()
+arch = outcpy = out = os.popen('LC_ALL=C lscpu').read()
+idx = out.find('Architecture:')
+if idx >= 0:
+    arch = arch[idx:].split('\n')[0].split()[1]
 idx = out.find('Model name:')
 if idx > 0:
     out = " ".join(out[idx:].split('\n')[0].split()[2:])
@@ -12,7 +15,8 @@ if beg > 0 and end > 0:
 else:
     outcpy = "Unknown"
 
-print('\nModel name: %s' % (out))
+print('\nArchitecture: %s' % (arch))
+print('Model name: %s' % (out))
 print('Vulnerability Meltdown: %s\n' % (outcpy))
 
 elements = numpy.loadtxt('tmp.out')

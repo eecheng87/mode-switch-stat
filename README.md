@@ -1,8 +1,7 @@
 # CPU mode switch statistics
 
 The `mode-switch-stat` tool measures the cost of CPU mode switch, the round
-trip between user and kernel mode. At present, this tool supports `x86_64`
-architecture only, and it would be useful to understand the performance impact
+trip between user and kernel mode. At present, this tool supports `x86_64` and `aarch64` (ARMv8) architectures, and it would be useful to understand the performance impact
 to defense against Meltdown and Spectre vulnerability.
 
 ## Background: Meltdown and Spectre
