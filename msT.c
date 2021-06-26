@@ -134,8 +134,12 @@ static int __init msT_init(void) {
     syscall_table = (void **)(scTab + ((char *)&system_wq - sysWQ));
 #endif
 
-#if defined(__aarch64__)
+#if defined(__aarch64__) 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5,7,0)
     init_mm_ptr = (struct mm_struct *)kallsyms_lookup_name("init_mm");
+#else
+    init_mm_ptr = (struct mm_struct *)(sysMM + ((char *)&system_wq - sysWQ));
+#endif
     on_each_cpu(enable_cycle_counter_el0, NULL, 1);
 #endif
 
@@ -160,7 +164,11 @@ static void __exit msT_exit(void) {
     disallow_writes();
 
 #if defined(__aarch64__)
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5,7,0)
     init_mm_ptr = (struct mm_struct *)kallsyms_lookup_name("init_mm");
+#else
+    init_mm_ptr = (struct mm_struct *)(sysMM + ((char *)&system_wq - sysWQ));
+#endif
     on_each_cpu(disable_cycle_counter_el0, NULL, 1);
 #endif
 }
